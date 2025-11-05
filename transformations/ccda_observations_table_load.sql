@@ -2,8 +2,7 @@ CREATE OR REFRESH STREAMING TABLE ccda_observations_gold
 TBLPROPERTIES (
   "quality" = "gold",
   "delta.enableChangeDataFeed" = "true",
-  "delta.enableDeletionVectors" = "true",
-  "delta.feature.variantType-preview" = "supported"
+  "delta.enableDeletionVectors" = "true"
 )
 COMMENT "Clean, merged Observations from CCDA";
 

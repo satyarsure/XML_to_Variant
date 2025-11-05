@@ -2,8 +2,7 @@ CREATE OR REFRESH STREAMING TABLE ccda_procedure_gold
 TBLPROPERTIES (
   "quality" = "gold",
   "delta.enableChangeDataFeed" = "true",
-  "delta.enableDeletionVectors" = "true",
-  "delta.feature.variantType-preview" = "supported"
+  "delta.enableDeletionVectors" = "true"
 )
 COMMENT "Clean, merged procedure from CCDA";
 
