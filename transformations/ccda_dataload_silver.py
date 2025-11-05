@@ -12,6 +12,7 @@ from pyspark.sql.functions import col, when, from_xml, current_timestamp
         "delta.feature.variantType-preview": "supported"
     }
 )
+@dp.expect("file_size_gt_1000", "file_size > 1000")
 def ccda_variant_silver():
     # Create corrupt record detection expression
     corrupt_check = from_xml(

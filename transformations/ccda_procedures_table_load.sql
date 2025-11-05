@@ -2,7 +2,8 @@ CREATE OR REFRESH STREAMING TABLE ccda_procedure_gold
 TBLPROPERTIES (
   "quality" = "gold",
   "delta.enableChangeDataFeed" = "true",
-  "delta.enableDeletionVectors" = "true"
+  "delta.enableDeletionVectors" = "true",
+  "delta.feature.variantType-preview" = "supported"
 )
 COMMENT "Clean, merged procedure from CCDA";
 
@@ -45,7 +46,7 @@ FROM (
                             END AS document_date,
                             r.parsed_xml:author.assignedAuthor.representedOrganization.name::STRING AS author_org,
                             r.parsed_xml
-                        FROM stream(users.satyendranath_sure_2.ccda_variant_silver) r
+                        FROM stream(ccda_variant_silver) r
                         WHERE r.parsed_xml IS NOT NULL
                     ),
 
